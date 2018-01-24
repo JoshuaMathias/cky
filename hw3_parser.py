@@ -26,7 +26,8 @@ outStr = ""
 parser = nltk.ChartParser(inputCFG)
 for sentence in sentences:
 	outStr+=sentence
-	words = sentence.split()
+	# words = sentence.split()
+	words = nltk.word_tokenize(sentence)
 	parses = parser.parse(words)
 	numParses = 0
 	for tree in parser.parse(words):
