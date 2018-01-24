@@ -25,11 +25,13 @@ outStr = ""
 # Test parsing with NLTK
 parser = nltk.ChartParser(inputCFG)
 for sentence in sentences:
-	outStr+=sentence+"\n"
-	parses = parser.parse(sentence)
-	numParses = len(parses)
-	for tree in parser.parse(sentence):
+	outStr+=sentence
+	words = sentence.split()
+	parses = parser.parse(words)
+	numParses = 0
+	for tree in parser.parse(words):
 		outStr+=str(tree)+"\n"
+		numParses += 1
 	outStr+="Number of parses: "+str(numParses)+"\n\n"
 
 outFile = open(output_filename,'w')
