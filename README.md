@@ -3,7 +3,7 @@
 Joshua Mathias & Kekoa Riggin - LING 571 - January 24, 2018
 
 ## Problems & Solutions
-Problem: Checking whether a symbol is a terminal.
+Problem: Checking whether a symbol is a terminal.  
 Solution: One option is checking for ' surrounding the symbol. We decided to use nltk's function is_terminal() to be sure to cover all cases (such as double quotes).
 
 ## Insights
