@@ -51,14 +51,14 @@ rulecount = 0
 for inLine in inputPCFG.productions(): # use grammar from nltk to auto handle rules with '|'
 
 ############################################
-# ADAPTION FROM CKY
+# ADAPTATION FROM CKY
 # SPLIT THE PROBABILITY FROM THE RULE AND ADD TO PROBABILITY DICTIONARY
 ############################################
 	full_line = str(inLine) # GET A STRING OF THE RULE
 
 	prob_parts = full_line.split(" [")
 	rule = prob_parts[0] # String with the whole rule - used for cky algorithm
-	prob = float(prob_parts[1][:-1]) # float with probability - sent to dictionary
+	prob = float(prob_parts[1][:-1]) # float with probability - sent to dictionary. Assumes that the last character of the line is the "]" and adjacent to the last digit.
 	probability_d[rule] = prob
 
 ############################################
@@ -106,7 +106,7 @@ sentences = open(test_sentence_filename,'r').readlines()
 outStr = ""
 for sentence in sentences:
 	words = nltk.word_tokenize(sentence) # tokenize input sentence
-	print(sentence, words)
+	# print(sentence, words)
 	if words[-1] == '':
 		words = words[:-1]
 	m = 0
@@ -174,7 +174,7 @@ for sentence in sentences:
 
 ############################################
 # ADAPTATION FOR PCKY
-# ADD THE ELEMENTS FROM INDEX 3 IN BOTH SUBTREES TO NEW NODE
+# ADD THE ELEMENTS FROM THIRD ELEMENT (INDEX 2) IN BOTH SUBTREES TO NEW NODE
 ############################################
 										current_list = []
 
@@ -191,7 +191,7 @@ for sentence in sentences:
 										if neo[r][c] == [None]:
 ############################################
 # ADAPTATION FOR PCKY
-# ADD THIRD INDEX FOR ARRAY OF RULES FOR QUICK DICTIONARY LOOKUP
+# ADD THIRD ELEMENT FOR ARRAY OF RULES FOR QUICK DICTIONARY LOOKUP
 ############################################
 											neo[r][c] = [[symbol, pathStr, current_list]]
 											addNew = True
