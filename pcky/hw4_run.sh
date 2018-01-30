@@ -6,7 +6,8 @@
       #      <improved_parse_output_filename> \
 		    # <baseline_eval> <improved_eval>
 # Example:
-# 	hw4_run.sh $dataDir/parses.train hw4_trained.pcfg $dataDir/sentences.txt parses_base.out hw4_trained.pcfg parses_improved.out parses_base.eval parses_improved.eval
+# 	export dataDir=~/dropbox/17-18/571/hw4/data
+# 	sh hw4_run.sh $dataDir/parses.train hw4_trained.pcfg $dataDir/sentences.txt parses_base.out hw4_trained.pcfg parses_improved.out parses_base.eval parses_improved.eval
 #		This example assumes that the induction process isn't improved, but that the parser is improved.
 
 # treebank_filename: Input parsed sentences.
