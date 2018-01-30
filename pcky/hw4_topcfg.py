@@ -71,7 +71,7 @@ for rule in sorted(rules):
     name = rule[0]
     rhs = ""
     if len(rule[1]) == 1:
-        rhs = "\'" + rule[1][0] + "\'"
+        rhs = "\"" + rule[1][0] + "\""
     elif len(rule[1])== 2:
         rhs = rule[1][0] + " " + rule[1][1]
 
