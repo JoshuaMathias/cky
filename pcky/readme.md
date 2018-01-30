@@ -70,6 +70,17 @@ Joshua Mathias & Kekoa Riggin - LING 570 - January 31, 2018
 
 ## Division of Work
 
-**Induction** - Joshua & Kekoa
+**Scripts and file setup** - Joshua
+Determining what commands and parameters need to be used and taking in parameters. Includes script for running eval and hw4_run.sh.
 
-**PCKY Algorithm** - Joshua & Kekoa
+**Coding induction** - Kekoa
+
+**Induction code review and QA** - Joshua
+
+**Coding PCKY Algorithm** - Kekoa
+
+**PCKY code review and QA** - Joshua
+
+**Evaluation** - Joshua & Kekoa
+
+**Improving PCKY** - Joshua
