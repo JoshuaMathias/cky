@@ -2,11 +2,26 @@
 
 Joshua Mathias & Kekoa Riggin - LING 570 - January 31, 2018
 
-## Problems
+## Basic PCKY
+
+### Problems
+
+**OOV** - 'either'
+
+**Match Case** - 'Arriving'
+
+### Solutions
+
+**OOV** - Ignore and don't include parse
+
+**Match Case** - Ignore and don't include parse
+
+## Improved PCKY
+
+### Problems
 
 
-
-## Solutions
+### Solutions
 
 
 
@@ -32,7 +47,26 @@ Joshua Mathias & Kekoa Riggin - LING 570 - January 31, 2018
 
 ## Improvements vs. Baseline Results
 
+**Baseline**
 
+| Recal | Prec. | Matched Bracket | Bracket gold | Bracket test | Cross Bracket | Words | Correct Tags | Tag Accracy |
+| ----- | ----- | --------------- | ----------------- | --------------- | ----- | ------------ | ----------- |
+| 87.96 | 87.96 | 285 | 324 | 324 | 26 | 424 | 420 | 99.06 |
+
+| Summary | Value |
+| ---- | ----- |
+| Number of sentence | 55 |
+| Number of Error sentence  |      0 |
+| Number of Skip  sentence  |      5 |
+| Number of Valid sentence  |     50 |
+| Bracketing Recall         |  87.96 |
+| Bracketing Precision      |  87.96 |
+| Bracketing FMeasure       |  87.96 |
+| Complete match            |  66.00 |
+| Average crossing          |   0.52 |
+| No crossing               |  80.00 |
+| 2 or less crossing        |  92.00 |
+| Tagging accuracy          |  99.06 |
 
 ## Division of Work
 
