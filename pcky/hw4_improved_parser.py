@@ -82,6 +82,7 @@ for inLine in inputPCFG.productions(): # use grammar from nltk to auto handle ru
 
 	# Populate lists of terminals and nonterminals with all left hand sides from the rules for each terminal or nonterminal.
 	if termCheck == True:
+		rhs = rhs.lower()
 		if rhs in term:
 			termInd[term[rhs]].append(lhs)
 		else:
@@ -106,6 +107,9 @@ sentences = open(test_sentence_filename,'r').readlines()
 outStr = ""
 for sentence in sentences:
 	words = nltk.word_tokenize(sentence) # tokenize input sentence
+	for wordI in range(len(words)):
+		if words[wordI] not in term:
+			words[wordI] = words[wordI].lower()
 	# print(sentence, words)
 	if words[-1] == '':
 		words = words[:-1]
@@ -197,6 +201,9 @@ for sentence in sentences:
 											addNew = True
 										else:
 											neo[r][c].append([symbol, pathStr, current_list])
+								# else:
+								# 	print("No rule found for : "+str(sub))
+
 ############################################
 # BACK TO CKY ORIGINAL
 ############################################
@@ -229,7 +236,10 @@ for sentence in sentences:
 				# print(tree[1])
 				probab = 1 # the pobability of the whole tree
 				for x in tree[2]:
-					probab *= probability_d[x]
+					if x not in probability_d:
+						probab *= probab / len(tree[2])
+					else:
+						probab *= probability_d[x]
 					# print("NODE IN TREE", x)
 					# print(probability_d[x])
 				# print("THIS PROB:", probab, "BEST PROB:", best_prob)

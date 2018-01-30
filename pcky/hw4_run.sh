@@ -7,8 +7,8 @@
 		    # <baseline_eval> <improved_eval>
 # Example:
 # 	export dataDir=~/dropbox/17-18/571/hw4/data
-# 	sh hw4_run.sh $dataDir/parses.train hw4_trained.pcfg $dataDir/sentences.txt parses_base.out hw4_trained.pcfg parses_improved.out parses_base.eval parses_improved.eval
-#		This example assumes that the induction process isn't improved, but that the parser is improved.
+# 	sh hw4_run.sh $dataDir/parses.train hw4_trained.pcfg $dataDir/sentences.txt parses_base.out hw4_trained_improved.pcfg parses_improved.out parses_base.eval parses_improved.eval
+#		This example assumes that both the induction process and the parser are improved.
 
 # treebank_filename: Input parsed sentences.
 # output_PCFG_file: Output PCFG for your grammar induction
@@ -33,6 +33,7 @@ baseline_eval=$7
 improved_eval=$8
 
 sh hw4_topcfg.sh $treebank_filename $output_PCFG_file
+sh hw4_improved_induction.sh $treebank_filename $input_PCFG_file
 sh hw4_parser.sh $output_PCFG_file $test_sentence_filename $baseline_parse_output_filename
 sh hw4_improved_parser.sh $input_PCFG_file $test_sentence_filename $improved_parse_output_filename
 sh run_eval.sh $baseline_parse_output_filename $baseline_eval
