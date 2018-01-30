@@ -2,22 +2,9 @@ import re
 import sys
 import operator
 
-# USAGE: hw4_topcfg.sh <treebank_filename> <output_PCFG_file>
-# Example: export dataDir=~/dropbox/17-18/571/hw4/data
-#   sh hw4_topcfg.sh $dataDir/parses.train hw4_trained.pcfg
+in_file = sys.argv[1]
+out_file = sys.argv[2]
 
-# <treebank_filename> is the name of the file holding the parsed sentences, one parse per line, in Chomsky Normal Form.
-# <output_PCFG_file> is the name of the file where the induced grammar should be written.
-if len(sys.argv) > 1:
-    in_file = sys.argv[1]
-    out_file = sys.argv[2]
-else:
-    print("USAGE: <treebank_filename> <output_PCFG_filename>")
-    exit()
-
-# Read in a set of parsed sentences (a mini-treebank) from a file
-# Identify productions and estimate their probabilities
-# Print out the induced PCFG with production of the form above.
 # ----------------
 # IMPORT SOURCE FILE
 fileopen = open(in_file)
@@ -83,14 +70,13 @@ for rule in sorted(rules):
 
     name = rule[0]
     rhs = ""
-    if len(rule[1]) == 1: # Terminal rule (only one on right hand side)
-        rhs = rule[1][0]
-    elif len(rule[1]) == 2: # Binary expansion rule (two on RHS)
+    if len(rule[1]) == 1:
+        rhs = "\'" + rule[1][0] + "\'"
+    elif len(rule[1])== 2:
         rhs = rule[1][0] + " " + rule[1][1]
 
     index = symbols_d[rule[0]]
 
-    # Count how many times each symbol (LHS) expands to the RHS of the current rule.
     if rhs not in symbols[index]:
         symbols[index][rhs] = 1
     else:
@@ -103,11 +89,11 @@ for name in names:
 	set_rules = sorted(symbols[c].items(), key=operator.itemgetter(0), reverse=False)
 	total = 0 # Total counts for RHS
 
-    # Add counts for each RHS to a total for denominator
+    # Add counts for each RHS to a total for denomonator
 	for rule in set_rules:
 		total += rule[1]
 
-    # Calculate probability for each unique rule
+    # Calcualte probability for each unique rule
 	line = "" # Added to string to print
 	for rule in set_rules:
 		probability = str(rule[1]/total)
@@ -119,5 +105,3 @@ for name in names:
 wout = open(out_file, "w+")
 wout.write(grammar)
 
-import os
-print("Finished converting treebank to PCFG (found at "+os.path.abspath(out_file)+")")
