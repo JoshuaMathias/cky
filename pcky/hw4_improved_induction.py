@@ -4,7 +4,7 @@ import operator
 
 # USAGE: hw4_topcfg.sh <treebank_filename> <output_PCFG_file>
 # Example: export dataDir=~/dropbox/17-18/571/hw4/data
-#   sh hw4_topcfg.sh $dataDir/parses.train hw4_trained.pcfg
+#   sh hw4_topcfg.sh $dataDir/parses.train hw4_trained_improved.pcfg
 
 # <treebank_filename> is the name of the file holding the parsed sentences, one parse per line, in Chomsky Normal Form.
 # <output_PCFG_file> is the name of the file where the induced grammar should be written.
