@@ -6,15 +6,26 @@ Joshua Mathias & Kekoa Riggin - LING 570 - January 31, 2018
 
 ### Problems
 
-**OOV** - 'either'
+**OOV** - 41. 'either' 48. 'during'
 
 **Match Case** - 'Arriving'
+
+**Absent Rules** - Rules that appear in the Gold parses file that are not merited in the training file.
+
+| Test Sentence | Gold | Train |
+| ------------- | ---- | ----- |
+| 6 | (NP_NNP Westchester) | (NP (NNP Westchester) (NNP County)) |
+| 41 | (NP_PRIME (CC either) (NNP Wednesday)) | NP_PRIME != CC NNP |
+| 42 | (FRAG_VP (VBG Traveling) (NP ...)) | FRAG_VP != VBG NP
+| 55 | (NNP Dulles) | (NP_NNP Dulles) |
 
 ### Solutions
 
 **OOV** - Ignore and don't include parse
 
 **Match Case** - Ignore and don't include parse
+
+**Absent Rules** - Because these rules are not present in the training data, they are not permitted in the parse.
 
 ## Improved PCKY
 
@@ -31,15 +42,18 @@ Joshua Mathias & Kekoa Riggin - LING 570 - January 31, 2018
 
 ## Special features
 
-
+<!--- I Think this is covered by improvements. --->
 
 ## What Was Learned
 
+Five of the test sentences, which parsed in the gold standard, did not parse with our original induction and parsing scripts. This was not a bug in the code but was a result of flaws in the training data because (mentioned above) a few words and rules that permitted parses in the gold standard were not found in the training data. The easiest fix to these problems is not additional features in the scripts, but additional training data that includes these words and rules.
+
+One solution we considered for the unparsed sentences was including rules for OOV words in the PCFG. This would have required smoothing of rule probabilities and some "hacky" approaches to building the tree. This would have possibly allowed for parses of a sentences that did not make sense due to improper tagging. We settled on fewer incorrect parses rather than more, but incorrect parses.
 
 
 ## Incomplete Portions
 
-*discuss what you tried and/or what did not work*
+<!--- Possibly move the paragraph on OOV here --->
 
 ## Improvements Implemented
 
