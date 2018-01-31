@@ -86,7 +86,6 @@ for rule in sorted(rules): # Sorting for testing convenience (can be removed)
     rhs = ""
     if len(rule[1]) == 1: # Terminal rule (only one on right hand side)
         rhs = "\"" + rule[1][0] + "\"" # Surround terminals with quotation marks (double quotations to avoid problems with terminals that contain apostrophes)
-            # All terminals are lowercased.
     elif len(rule[1])== 2:
         rhs = rule[1][0] + " " + rule[1][1] # Binary expansion rule (two on RHS)
 
