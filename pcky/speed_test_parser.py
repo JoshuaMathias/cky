@@ -3,8 +3,8 @@ import sys
 import time
 
 # Example command:
- # sh speed_test_parser.sh ../hw4_trained.pcfg $dataDir/sentences.txt ../parses_base.out
-numRuns = 1
+# sh speed_test_parser.sh ../hw4_trained.pcfg $dataDir/sentences.txt ../parses_base.out
+numRuns = 10
 
 # Base parser
 baseArguments = ["sh","hw4_parser.sh"]
@@ -37,13 +37,13 @@ for i in range(numRuns):
 averageImproved /= numRuns
 averageImprovedReal /= numRuns
 
-print("Average base parser process time ("+str(numRuns)+" runs): "+str(averageBase))
-print("Average base parser real time ("+str(numRuns)+" runs): "+str(averageBaseReal))
+print("Average improved parser process time ("+str(numRuns)+" runs): "+str(averageBase))
+print("Average improved parser real time ("+str(numRuns)+" runs): "+str(averageBaseReal))
 
 avgTimeDiff = averageBase - averageImproved
 avgTimeDiffReal = averageBaseReal - averageImprovedReal
 print("Process time difference: "+str(avgTimeDiff))
-print("Process time difference: "+str(avgTimeDiffReal))
+print("Real time difference: "+str(avgTimeDiffReal))
 percentProcessDiff = avgTimeDiff / averageBase * 100
 percentRealDiff = avgTimeDiffReal / averageBaseReal * 100
 print("Percentage improvement (process time): "+str(percentProcessDiff)+"%")

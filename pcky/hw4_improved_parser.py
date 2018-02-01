@@ -251,13 +251,13 @@ for sentence in sentences:
 										addNew = True
 									else:
 										neo[r][c].append([symbol, pathStr, current_list])
-							# else:
-							# 	print("No rule found for : "+str(sub))
 
 ############################################
 # BACK TO CKY ORIGINAL
 ############################################
 				move += 1
+			# if len(neo[r][c]) < 1 or not neo[r][c][0]:
+			# 	print("No rule found for : "+left_sub[0])
 			r-=1
 		c+=1
 # outStr = ""
