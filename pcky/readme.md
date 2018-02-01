@@ -84,6 +84,7 @@ For both OOV and Match Case, the comparisons were made solely for the purpose of
 **Baseline**
 
 | Recal | Prec. | Matched Bracket | Bracket gold | Bracket test | Cross Bracket | Words | Correct Tags | Tag Accracy |
+| ----- | ----- | --------------- | ------------ | ------------ | ------------- | ----- | ------------ | ----------- |
 | 87.96 | 87.96 | 285             | 324          | 324          | 26            | 424   | 420          | 99.06       |
 
 | Summary | Value |
@@ -104,6 +105,7 @@ For both OOV and Match Case, the comparisons were made solely for the purpose of
 **Improved**
 
 | Recal | Prec. | Matched Bracket | Bracket gold | Bracket test | Cross Bracket | Words | Correct Tags | Tag Accracy |
+| ----- | ----- | --------------- | ------------ | ------------ | ------------- | ----- | ------------ | ----------- |
 | 87.72 | 87.72 | 293             | 334          | 334          | 26            | 438   | 433          | 98.86       |
 
 | Summary | Value |
