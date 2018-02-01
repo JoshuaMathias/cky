@@ -42,7 +42,7 @@ One word is unrecognized when it is capitalized, but is when lowercased.
 **Absent Rules** - Not permitted in the parse.
 
 ## Insights
-Coverage may be further improved by allowing parses that have no rule, if no rule is available for a given sentence.
+Coverage may be further improved by allowing expansions that have no rule, if no rule is available for parts of a given sentence, and then assigning a probability that maximizes entropy to that expansion.
 
 
 ## Special features
@@ -87,6 +87,7 @@ For both OOV and Match Case, the comparisons were made solely for the purpose of
 | 87.96 | 87.96 | 285             | 324          | 324          | 26            | 424   | 420          | 99.06       |
 
 | Summary | Value |
+| ------- | ----- |
 | Number of sentence | 55 |
 | Number of Error sentence  |      0 |
 | Number of Skip  sentence  |      5 |
@@ -106,6 +107,7 @@ For both OOV and Match Case, the comparisons were made solely for the purpose of
 | 87.72 | 87.72 | 293             | 334          | 334          | 26            | 438   | 433          | 98.86       |
 
 | Summary | Value |
+| ------- | ----- |
 | Number of sentence        |     55 |
 | Number of Error sentence  |      0 |
 | Number of Skip  sentence  |      3 |
